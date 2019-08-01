@@ -1,0 +1,23 @@
+#container {
+    width:100%;
+    text-align:left;
+}
+
+#timezone {
+    float:left;
+  padding:10px;
+
+}
+
+#icon1 {
+    display: inline-block;
+    margin:0 auto;
+
+
+}
+
+#temp {
+     float: left;
+  padding:10px;
+
+}
