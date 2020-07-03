@@ -30,17 +30,119 @@
 
 
 
-<h1> Weather Forecast</h1>
+<div class="col-md-4 col-sm-6">
+             <div class="weatherCard-container">
+                <div class="weatherCard">
+                    <div class="front">
+                        <div class="cover">
+                            <img id="cityPic" src="#"/>
+                        </div>
+                        <div class="user">
+ 								<canvas id="icon1" height="128px" width="128px"></canvas>
+                      	</div>
+                        	
+                        <div class="content">
+                            <div class="main">
+                                <span id="timezone" class="name ml-3">City</span>
+                                <span id="wDate" class="ml-4 mb-4">Date</span>
+                                <span id="wTime" class="ml-4">Time</span>
+                                <p id="temp" class="temp">Temp</p>
+
+                            </div>
+                            <div class="footer">
+                                <i class="fa fa-mail-forward"></i>
+                            </div>
+                        </div>
+                    </div> <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 id="summary" class="motto">"To be or not to be, this is my awesome motto!"</h5>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h4 id="wCity1" class="text-center"></h4>
+                                <p id="wDate1" class="text-center"></p>
+                                <p id="wTime1" class="text-center"></p>
 
 
-<div id="container">
-  <div id="timezone"></div>
-  <div id="temp"></div>
-  <canvas id="icon1" width="32" height="32"></canvas>
-</div>
+                                <div class="stats-container">
+                                    <div class="stats">
+                                        <h4 id="day1">235</h4>
+                                        <p>
+                                            <canvas id="dailyIcon1" height="40px" width="40px"></canvas>
+                                            <br/><span id="templow1" class="mb-1">Temp</span><sup>°C</sup> / <span id="temphigh1" class="mb-1">Temp</span><sup>°C</sup>
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4 id="day2">235</h4>
+                                        <p>
+                                            <canvas id="dailyIcon2" height="40px" width="40px"></canvas>
+                                            <br/><span id="templow2" class="mb-1">Temp</span><sup>°C</sup> / <span id="temphigh2" class="mb-1">Temp</span><sup>°C</sup>
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4 id="day3">235</h4>
+                                        <p>
+                                            <canvas id="dailyIcon3" height="40px" width="40px"></canvas>
+                                            <br/><span id="templow3" class="mb-1">Temp</span><sup>°C</sup> / <span id="temphigh3" class="mb-1">Temp</span><sup>°C</sup>
 
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="stats-container">
+                                    <div class="stats">
+                                        <h4 id="day4">235</h4>
+                                        <p>
+                                            <canvas id="dailyIcon4" height="40px" width="40px"></canvas>
+                                            <br/><span id="templow4" class="mb-1">Temp</span><sup>°C</sup> / <span id="temphigh4" class="mb-1">Temp</span><sup>°C</sup>
 
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4 id="day5">235</h4>
+                                        <p>
+                                            <canvas id="dailyIcon5" height="40px" width="40px"></canvas>
+                                            <br/><span id="templow5" class="mb-1">Temp</span><sup>°C</sup> / <span id="temphigh5" class="mb-1">Temp</span><sup>°C</sup>
+
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4 id="day6">235</h4>
+                                        <p>
+                                            <canvas id="dailyIcon6" height="40px" width="40px"></canvas>
+                                            <br/><span id="templow6" class="mb-1">Temp</span><sup>°C</sup> / <span id="temphigh6" class="mb-1">Temp</span><sup>°C</sup>
+
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="social-links text-center">
+
+                            </div>
+                        </div>
+                    </div> <!-- end back panel -->
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+        </div> <!-- end col sm 3 -->
 
 <script language='javascript'>
   weatherForecast('${apiKey}','${units}','${language}','${color}');
+  
+     $().ready(function(){
+        $('[rel="tooltip"]').tooltip();
+
+    });
+
+    function rotateCard(btn){
+        var $card = $(btn).closest('.weatherCard-container');
+        console.log($card);
+        if($card.hasClass('hover')){
+            $card.removeClass('hover');
+        } else {
+            $card.addClass('hover');
+        }
+    }
 </script>
