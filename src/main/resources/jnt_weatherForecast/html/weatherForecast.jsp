@@ -21,7 +21,7 @@
 <template:addResources type="css" resources="weatherForecast.css"/>
 
 <template:addResources type="javascript" insert="body" resources="jquery-3.2.1.min.js, weatherForecast.js,skyicons.js" />
-
+<jcr:nodeProperty node="${currentNode}" name="forecastProvider" var="provider"/>
 <jcr:nodeProperty node="${currentNode}" name="apiKey" var="apiKey"/>
 <jcr:nodeProperty node="${currentNode}" name="language" var="language"/>
 <jcr:nodeProperty node="${currentNode}" name="units" var="units"/>
@@ -38,15 +38,23 @@
                             <img id="cityPic" src="#"/>
                         </div>
                         <div class="user">
- 								<canvas id="icon1" height="128px" width="128px"></canvas>
-                      	</div>
+                            <c:if test="${provider == 'DarkSky'}">
+                                <canvas id="icon1" height="128px" width="128px"></canvas>
+                            </c:if>
+                            <c:if test="${provider == 'openWeatherMap'}">
+                                <img id="iconow" src="#"/>
+                            </c:if>
+                        </div>
                         	
                         <div class="content">
                             <div class="main">
-                                <span id="timezone" class="name ml-3">City</span>
-                                <span id="wDate" class="ml-4 mb-4">Date</span>
-                                <span id="wTime" class="ml-4">Time</span>
-                                <p id="temp" class="temp">Temp</p>
+                                <h2 id="timezone" class="name ml-3">City</h2>
+                                <div class="wtime mb-1">
+                                    <div id="wDate">Date</div>
+                                    <div id="wTime" class="ml-2">Time</div>
+                                </div>
+                                <div id="temp" class="temp">Temp</div>
+                                <div id="dailySummary" class="summaryTxt" align="center">summary</div>
 
                             </div>
                             <div class="footer">
@@ -69,23 +77,37 @@
                                     <div class="stats">
                                         <h4 id="day1">235</h4>
                                         <p>
-                                            <canvas id="dailyIcon1" height="40px" width="40px"></canvas>
-                                            <br/><span id="templow1" class="mb-1">Temp</span><sup>°C</sup> / <span id="temphigh1" class="mb-1">Temp</span><sup>°C</sup>
+                                            <c:if test="${provider == 'DarkSky'}">
+                                                <canvas id="dailyIcon1" height="40px" width="40px"></canvas>
+                                            </c:if>
+                                            <c:if test="${provider == 'openWeatherMap'}">
+                                                <img id="iconow1" height="40px" src="#"/>
+                                            </c:if>
+                                            <br/><span id="templow1" class="mb-1">Temp</span> / <span id="temphigh1" class="mb-1">Temp</span>
                                         </p>
                                     </div>
                                     <div class="stats">
                                         <h4 id="day2">235</h4>
                                         <p>
-                                            <canvas id="dailyIcon2" height="40px" width="40px"></canvas>
-                                            <br/><span id="templow2" class="mb-1">Temp</span><sup>°C</sup> / <span id="temphigh2" class="mb-1">Temp</span><sup>°C</sup>
+                                            <c:if test="${provider == 'DarkSky'}">
+                                                <canvas id="dailyIcon2" height="40px" width="40px"></canvas>
+                                            </c:if>
+                                            <c:if test="${provider == 'openWeatherMap'}">
+                                                <img id="iconow2" height="40px" src="#"/>
+                                            </c:if>
+                                            <br/><span id="templow2" class="mb-1">Temp</span> / <span id="temphigh2" class="mb-1">Temp</span>
                                         </p>
                                     </div>
                                     <div class="stats">
                                         <h4 id="day3">235</h4>
                                         <p>
-                                            <canvas id="dailyIcon3" height="40px" width="40px"></canvas>
-                                            <br/><span id="templow3" class="mb-1">Temp</span><sup>°C</sup> / <span id="temphigh3" class="mb-1">Temp</span><sup>°C</sup>
-
+                                            <c:if test="${provider == 'DarkSky'}">
+                                                <canvas id="dailyIcon3" height="40px" width="40px"></canvas>
+                                            </c:if>
+                                            <c:if test="${provider == 'openWeatherMap'}">
+                                                <img id="iconow3" height="40px" src="#"/>
+                                            </c:if>
+                                            <br/><span id="templow3" class="mb-1">Temp</span> / <span id="temphigh3" class="mb-1">Temp</span>
                                         </p>
                                     </div>
                                 </div>
@@ -93,25 +115,37 @@
                                     <div class="stats">
                                         <h4 id="day4">235</h4>
                                         <p>
-                                            <canvas id="dailyIcon4" height="40px" width="40px"></canvas>
-                                            <br/><span id="templow4" class="mb-1">Temp</span><sup>°C</sup> / <span id="temphigh4" class="mb-1">Temp</span><sup>°C</sup>
-
+                                            <c:if test="${provider == 'DarkSky'}">
+                                                <canvas id="dailyIcon4" height="40px" width="40px"></canvas>
+                                            </c:if>
+                                            <c:if test="${provider == 'openWeatherMap'}">
+                                                <img id="iconow4" height="40px" src="#"/>
+                                            </c:if>
+                                            <br/><span id="templow4" class="mb-1">Temp</span> / <span id="temphigh4" class="mb-1">Temp</span>
                                         </p>
                                     </div>
                                     <div class="stats">
                                         <h4 id="day5">235</h4>
                                         <p>
-                                            <canvas id="dailyIcon5" height="40px" width="40px"></canvas>
-                                            <br/><span id="templow5" class="mb-1">Temp</span><sup>°C</sup> / <span id="temphigh5" class="mb-1">Temp</span><sup>°C</sup>
-
+                                            <c:if test="${provider == 'DarkSky'}">
+                                                <canvas id="dailyIcon5" height="40px" width="40px"></canvas>
+                                            </c:if>
+                                            <c:if test="${provider == 'openWeatherMap'}">
+                                                <img id="iconow5" height="40px" src="#"/>
+                                            </c:if>
+                                            <br/><span id="templow5" class="mb-1">Temp</span> / <span id="temphigh5" class="mb-1">Temp</span>
                                         </p>
                                     </div>
                                     <div class="stats">
                                         <h4 id="day6">235</h4>
                                         <p>
-                                            <canvas id="dailyIcon6" height="40px" width="40px"></canvas>
-                                            <br/><span id="templow6" class="mb-1">Temp</span><sup>°C</sup> / <span id="temphigh6" class="mb-1">Temp</span><sup>°C</sup>
-
+                                            <c:if test="${provider == 'DarkSky'}">
+                                                <canvas id="dailyIcon6" height="40px" width="40px"></canvas>
+                                            </c:if>
+                                            <c:if test="${provider == 'openWeatherMap'}">
+                                                <img id="iconow6" height="40px" src="#"/>
+                                            </c:if>
+                                            <br/><span id="templow6" class="mb-1">Temp</span> / <span id="temphigh6" class="mb-1">Temp</span>
                                         </p>
                                     </div>
                                 </div>
@@ -129,7 +163,7 @@
         </div> <!-- end col sm 3 -->
 
 <script language='javascript'>
-  weatherForecast('${apiKey}','${units}','${language}','${color}');
+  weatherForecast('${provider}','${apiKey}','${units}','${language}','${color}');
   
      $().ready(function(){
         $('[rel="tooltip"]').tooltip();
