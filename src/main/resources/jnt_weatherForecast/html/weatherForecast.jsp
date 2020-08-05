@@ -30,7 +30,6 @@
 
 
 
-<div class="col-md-4 col-sm-6">
              <div class="weatherCard-container">
                 <div class="weatherCard">
                     <div class="front">
@@ -160,7 +159,6 @@
                     </div> <!-- end back panel -->
                 </div> <!-- end card -->
             </div> <!-- end card-container -->
-        </div> <!-- end col sm 3 -->
 
 <script language='javascript'>
   weatherForecast('${provider}','${apiKey}','${units}','${language}','${color}');
