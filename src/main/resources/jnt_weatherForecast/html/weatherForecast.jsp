@@ -47,7 +47,7 @@
                         	
                         <div class="content">
                             <div class="main">
-                                <h2 id="timezone" class="name ml-3">City</h2>
+                                <h3 id="timezone" class="name ml-3">City</h3>
                                 <div class="wtime mb-1">
                                     <div id="wDate">Date</div>
                                     <div id="wTime" class="ml-2">Time</div>

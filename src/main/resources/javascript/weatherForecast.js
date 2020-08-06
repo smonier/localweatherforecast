@@ -4,7 +4,6 @@ var county = "";
 var country = "";
 
 function getCity(Latitude,longitude) {
-	console.log('hello');
 	return $.getJSON("https://us1.locationiq.com/v1/reverse.php?key=822bd8834e9abd&lat=" + latitude + "&lon=" + longitude + "&format=json").then(function (response) {
 		return {
 			city:response.address.city,
@@ -38,21 +37,16 @@ function weatherForecast(provider, apiKey, units, language, color) {
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
 
-            $.getJSON("https://us1.locationiq.com/v1/reverse.php?key=822bd8834e9abd&lat=" + latitude + "&lon=" + longitude + "&format=json", function (response) {
-                city = response.address.city;
-                county = response.address.county;
-                country = response.address.country;
-                village = response.address.village;
-            });
             console.log('Latitude is ' + latitude + '° - Longitude is ' + longitude + '°');
 
-            $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "&lang=" + language + "&callback=?", function (data) {
-                //var city = (data.timezone).split("/");
+            getCity(latitude,longitude).done(function (returndata) {
+                $.getJSON(url + "?lat=" + latitude + "&lon=" + longitude + "&units=" + unitCall + "&appid=" + apiKey).done(function (data) {
+                    //var city = ""; //(data.timezone).split("/");
                 var d = new Date(data.currently.time * 1000);
-                document.getElementById("cityPic").src = 'https://source.unsplash.com/featured/?' + city[1] + ',' + data.currently.icon;
+                document.getElementById("cityPic").src = 'https://source.unsplash.com/featured/?' + returndata.city + ',' + data.currently.icon;
                 $('#temp').html(Math.round(data.currently.temperature) + unit);
-                $('#timezone').html(city);
-                $('#wCity1').html(city);
+                $('#timezone').html(returndata.city+ ", " + returndata.country);
+                $('#wCity1').html(returndata.city+ ", " + returndata.country);
                 $('#wDate').html(d.toDateString());
                 $('#wDate1').html(d.toDateString());
                 $('#wTime').html(d.toLocaleTimeString());
@@ -70,7 +64,8 @@ function weatherForecast(provider, apiKey, units, language, color) {
 
                 skycons.play();
                 console.log(data.currently.temperature + unit + " " + data.timezone);
-            });
+            })
+            })
         }
 
         function error() {
@@ -99,7 +94,7 @@ function weatherForecast(provider, apiKey, units, language, color) {
                     //var city = ""; //(data.timezone).split("/");
 
                     var d = new Date(data.current.dt * 1000);
-                    document.getElementById("cityPic").src = 'https://source.unsplash.com/featured/?' + returndata.city + ',' + data.current.weather[0].main;
+                    document.getElementById("cityPic").src = 'https://source.unsplash.com/random?' + returndata.city  + ','+ encodeURI(data.current.weather[0].description);
                     $('#temp').html(Math.round(data.current.temp) + unit);
                     $('#timezone').html(returndata.city + ", " + returndata.country);
                     $('#wCity1').html(returndata.city + ", " + returndata.country);
