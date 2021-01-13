@@ -2,8 +2,4 @@
 <jmix = 'http://www.jahia.org/jahia/mix/1.0'>
   
   [jnt:weatherForecast] > jnt:content, jmix:editorialContent, jmix:structuredContent
- - forecastProvider (string, choicelist[resourceBundle]) < 'DarkSky', 'openWeatherMap'
- - apiKey (string) mandatory
  - units (string, choicelist[resourceBundle]) < 'us', 'si'
- - language (string, choicelist[resourceBundle]) < 'ar','az','be','bg','bn','bs','ca','cs','da','de','el','en','eo','es','et','fi','fr','he','hi','hr','hu','id','is','it','ja','ka','kn','ko','kw','lv','ml','mr','nb','nl','no','pa','pl','pt','ro','ru','sk','sl','sr','sv','ta','te','tet','tr','uk','ur','x-pig-latin','zh','zh-tw'
- - color (string, choicelist[resourceBundle]) < 'monochrome', 'pink' , 'white'
