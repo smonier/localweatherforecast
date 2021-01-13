@@ -5,7 +5,7 @@
     <bean class="org.jahia.modules.weatherforecast.LocationIQApiKey">
             <property name="priority" value="31"/>
             <property name="description" value="Location module: Inject locationIQ key in request to be used by map .jsp"/>
-            <property name="locationIQApiKey" value="${jahia.modules.location.attr.locationiq.key:}"/>
+            <property name="locationIQApiKey" value="${jahia.modules.location.attr.locationiq.key:9051e85d6950fc}"/>
             <property name="applyOnNodeTypes" value="jnt:weatherForecast"/>
         </bean>
 
@@ -13,7 +13,7 @@
         <bean class="org.jahia.modules.weatherforecast.OpenWeatherMapFilter">
             <property name="priority" value="33"/>
             <property name="description" value="Location module: Inject OPenWeatherMap key in request to be used by map .jsp"/>
-            <property name="openWeatherMapKey" value="${jahia.modules.location.attr.openWeatherMap.key:}"/>
+            <property name="openWeatherMapKey" value="${jahia.modules.location.attr.openWeatherMap.key:c884f12a109c47b45cbe6ff086047245}"/>
             <property name="applyOnNodeTypes" value="jnt:weatherForecast"/>
         </bean>
 </beans>

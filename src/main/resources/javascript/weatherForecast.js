@@ -1,6 +1,5 @@
 function weatherForecast(apiKey, locationIQKey, units, uuid) {
 
-    var location = document.getElementById("location");
     var apiKey = apiKey; // PLEASE SIGN UP FOR YOUR OWN API KEY
     var url = 'https://api.openweathermap.org/data/2.5/onecall';
     var unit = "<sup>°C</sup>";
@@ -8,13 +7,15 @@ function weatherForecast(apiKey, locationIQKey, units, uuid) {
     if (units == "us") {
         unit = "<sup>°F</sup>";
     }
-
-
+    console.log('Avant Geoloc');
     navigator.geolocation.getCurrentPosition(success, error);
+    console.log('Après Geoloc');
 
     function success(position) {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
+        console.log('Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°');
+
         if (units == "us") {
             unitCall = "imperial";
         }
@@ -63,11 +64,12 @@ function weatherForecast(apiKey, locationIQKey, units, uuid) {
             console.log(data.currently.temperature + unit + " " + data.timezone);
         });
 
-
-        function error() {
-            console.log("Unable to retrieve your location");
-        }
-
     }
+
+    function error(err) {
+        console.warn(`Unable to retrieve your location (${err.code}): ${err.message}`);
+    }
+
+
 }
 

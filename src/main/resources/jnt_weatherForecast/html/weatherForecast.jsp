@@ -138,7 +138,9 @@
 </div>
 
 <script language='javascript'>
-    weatherForecast('${openWeatherMapKey}', '${locationMapKey}', '${units}', '${uuid}');
+    console.log('${openWeatherMapKey} - ${locationIQApiKey}');
+
+    weatherForecast('${openWeatherMapKey}', '${locationIQApiKey}', '${units}', '${uuid}');
 
     $().ready(function () {
         $('[rel="tooltip"]').tooltip();
