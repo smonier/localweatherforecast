@@ -138,7 +138,6 @@
 </div>
 
 <script language='javascript'>
-    console.log('${openWeatherMapKey} - ${locationIQApiKey}');
 
     weatherForecast('${openWeatherMapKey}', '${locationIQApiKey}', '${units}', '${uuid}');
 
