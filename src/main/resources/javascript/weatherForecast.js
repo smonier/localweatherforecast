@@ -7,14 +7,11 @@ function weatherForecast(apiKey, locationIQKey, units, uuid) {
     if (units == "us") {
         unit = "<sup>°F</sup>";
     }
-    console.log('Avant Geoloc');
     navigator.geolocation.getCurrentPosition(success, error);
-    console.log('Après Geoloc');
 
     function success(position) {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
-        console.log('Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°');
 
         if (units == "us") {
             unitCall = "imperial";
