@@ -1,6 +1,7 @@
 function weatherForecast(apiKey, locationIQKey, units, uuid) {
 
     var apiKey = apiKey; // PLEASE SIGN UP FOR YOUR OWN API KEY
+    var uuid = uuid;
     var url = 'https://api.openweathermap.org/data/2.5/onecall';
     var unit = "<sup>°C</sup>";
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
