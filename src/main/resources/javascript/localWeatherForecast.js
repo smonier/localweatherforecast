@@ -1,4 +1,4 @@
-function weatherForecast(apiKey, locationIQKey, units, uuid) {
+function localWeatherForecast(apiKey, locationIQKey, units, uuid) {
 
     var apiKey = apiKey; // PLEASE SIGN UP FOR YOUR OWN API KEY
     var uuid = uuid;
@@ -55,7 +55,7 @@ function weatherForecast(apiKey, locationIQKey, units, uuid) {
                 var dailyTemp = data.daily[i];
                 var d1 = new Date(dailyTemp.dt * 1000);
                 $('#day' + (i + 1) + '-' + uuid).html(d1.getDate() + ' ' + months[d1.getMonth()]);
-                document.getElementById("iconow" + (i + 1) + '-' + uuid).src = 'http://openweathermap.org/img/wn/' + dailyTemp.weather[0].icon + '@2x.png';
+                document.getElementById("iconow" + (i + 1) + "-" + uuid).src = 'http://openweathermap.org/img/wn/' + dailyTemp.weather[0].icon + '@2x.png';
                 $('#templow' + (i + 1) + '-' + uuid).html(Math.round(dailyTemp.temp.night) + unit);
                 $('#temphigh' + (i + 1) + '-' + uuid).html(Math.round(dailyTemp.temp.day) + unit);
             }

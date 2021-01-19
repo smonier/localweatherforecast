@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean class="org.jahia.modules.localWeatherForecast.LocationIQApiKey">
+        <property name="priority" value="31"/>
+        <property name="description" value="Location module: Inject locationIQ key in request to be used by map .jsp"/>
+        <property name="locationIQApiKey" value="${jahia.modules.location.attr.locationiq.key:9051e85d6950fc}"/>
+        <property name="applyOnNodeTypes" value="jnt:localWeatherForecast"/>
+    </bean>
+
+
+    <bean class="org.jahia.modules.localWeatherForecast.OpenWeatherMapFilter">
+        <property name="priority" value="33"/>
+        <property name="description"
+                  value="Location module: Inject OPenWeatherMap key in request to be used by map .jsp"/>
+        <property name="openWeatherMapKey"
+                  value="${jahia.modules.location.attr.openWeatherMap.key:c884f12a109c47b45cbe6ff086047245}"/>
+        <property name="applyOnNodeTypes" value="jnt:localWeatherForecast"/>
+    </bean>
+</beans>

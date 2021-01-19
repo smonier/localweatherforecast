@@ -41,7 +41,7 @@
  *     If you are unsure which license is appropriate for your use,
  *     please contact the sales department at sales@jahia.com.
  */
-package org.jahia.modules.weatherforecast;
+package org.jahia.modules.localWeatherForecast;
 
 import org.apache.commons.lang.StringUtils;
 import org.jahia.services.render.RenderContext;

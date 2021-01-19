@@ -1,4 +1,4 @@
-package org.jahia.modules.weatherforecast.rules
+package org.jahia.modules.localWeatherForecast.rules
 
 // list any import classes here.
 import org.jahia.services.content.rules.*

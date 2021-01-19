@@ -1,4 +1,4 @@
-# weatherForecast
+# localWeatherForecast
 
 Jahia V8 Module
 
